@@ -1,0 +1,29 @@
+{
+	"name" : "icto/bigbluebutton",
+	"description" : "Laravel package that provides the bigbluebutton interface",
+	"authors" : [{
+			"name" : "Kristof Keppens",
+			"email" : "k.keppens@ugent.be"
+		}
+	],
+	"keywords" : [
+		"bigbluebutton webmeeting"
+	],
+	"homepage" : "https://github.com/Icto/laravel-bigbluebutton",
+	"license" : [
+		"GPL-3.0"
+	],
+	"require" : {
+		"php" : ">=5.5.9"
+	},
+    "require-dev" : {},
+	"autoload" : {
+		"psr-4" : {
+			"Icto\\Bigbluebutton" : "src/"
+		}
+	},
+	"support" : {
+		"source" : "https://github.com/Icto/laravel-bigbluebutton",
+		"issues" : "https://github.com/Icto/laravel-bigbluebutton/issues"
+	}
+}
