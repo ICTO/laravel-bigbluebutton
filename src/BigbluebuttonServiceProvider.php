@@ -1,6 +1,4 @@
-<?php
-
-namespace Icto\Bigbluebutton;
+<?php namespace Icto\Bigbluebutton;
 
 use Illuminate\Support\ServiceProvider;
 

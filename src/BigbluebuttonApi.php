@@ -1,4 +1,4 @@
-<?php
+<?php namespace Icto\Bigbluebutton;
 /*
 
 BigBlueButton open source conferencing system - http://www.bigbluebutton.org/
@@ -166,7 +166,7 @@ class BigbluebuttonApi
      *        'meta_category' => '',        -- Use to pass additional info to BBB server. See API docs to enable.
      *        );
      */
-    public function createMeetingWithXmlResponseArray($meetingID, $creationParams, $xml = '')
+    public function createMeeting($meetingID, $creationParams, $xml = '')
     {
         $xml = $this->processXmlResponse($this->getCreateMeetingURL($meetingID, $creationParams), $xml);
 
@@ -250,7 +250,7 @@ class BigbluebuttonApi
      * @return array|null
      * @throws Exception
      */
-    public function endMeetingWithXmlResponseArray($meetingID, $password)
+    public function endMeeting($meetingID, $password)
     {
         $xml = $this->processXmlResponse($this->getEndMeetingURL($meetingID, $password));
         if ($xml) {
@@ -292,18 +292,13 @@ class BigbluebuttonApi
      * @return array|null
      * @throws Exception
      */
-    public function isMeetingRunningWithXmlResponseArray($meetingID)
+    public function isMeetingRunning($meetingID)
     {
         $xml = $this->processXmlResponse($this->getIsMeetingRunningUrl($meetingID));
-        if ($xml) {
-            return array(
-                'returncode' => $xml->returncode,
-                'running' => $xml->running
-            );
-        } else {
-            return null;
-        }
-
+        if ($xml->running == 'true')
+            return true;
+        else
+            return false;
     }
 
     /**
@@ -322,7 +317,7 @@ class BigbluebuttonApi
      * @return array|null
      * @throws Exception
      */
-    public function getMeetingsWithXmlResponseArray()
+    public function getMeetings()
     {
         $xml = $this->_processXmlResponse($this->getGetMeetingsUrl());
         if ($xml) {
@@ -394,7 +389,7 @@ class BigbluebuttonApi
      * @return array|null
      * @throws Exception
      */
-    public function getMeetingInfoWithXmlResponseArray($meetingID, $password)
+    public function getMeetingInfo($meetingID, $password)
     {
         $xml = $this->processXmlResponse($this->getMeetingInfoUrl($meetingID, $password));
         if ($xml) {
@@ -471,7 +466,7 @@ class BigbluebuttonApi
      * @return array|null
      * @throws Exception
      */
-    public function getRecordingsWithXmlResponseArray($meetingID)
+    public function getRecordings($meetingID)
     {
         $xml = $this->processXmlResponse($this->getRecordingsUrl($meetingID));
         if ($xml) {
@@ -547,7 +542,7 @@ class BigbluebuttonApi
      * @return array|null
      * @throws Exception
      */
-    public function publishRecordingsWithXmlResponseArray($recordID, $publish)
+    public function publishRecordings($recordID, $publish)
     {
         $xml = $this->processXmlResponse($this->getPublishRecordingsUrl($recordID, $publish));
         if ($xml) {
@@ -586,7 +581,7 @@ class BigbluebuttonApi
      * @return array|null
      * @throws Exception
      */
-    public function deleteRecordingsWithXmlResponseArray($recordID)
+    public function deleteRecordings($recordID)
     {
         $xml = $this->processXmlResponse($this->getDeleteRecordingsUrl($recordID));
         if ($xml) {
