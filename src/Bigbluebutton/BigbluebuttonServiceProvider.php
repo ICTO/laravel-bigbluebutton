@@ -9,7 +9,7 @@ class BigbluebuttonServiceProvider extends ServiceProvider {
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../../config/bigbluebutton.php' => config_path('bigbluebutton.php')
+            __DIR__.'/../config/bigbluebutton.php' => config_path('bigbluebutton.php')
         ]);
     }
 
