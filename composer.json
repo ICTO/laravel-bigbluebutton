@@ -19,7 +19,7 @@
     "require-dev" : {},
 	"autoload" : {
 		"psr-4" : {
-			"Icto\\Bigbluebutton" : "src/"
+			"Icto\\Bigbluebutton\\" : "src/"
 		}
 	},
 	"support" : {
