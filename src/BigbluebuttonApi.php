@@ -100,12 +100,12 @@ class BigbluebuttonApi
             curl_close($ch);
 
             if ($data)
-                return (new SimpleXMLElement($data));
+                return (new \SimpleXMLElement($data));
             else
                 return false;
         }
         if (!empty($xml))
-            throw new Exception('Set xml, but curl is not installed.');
+            throw new \Exception('Set xml, but curl is not installed.');
 
         return (simplexml_load_file($url));
     }
