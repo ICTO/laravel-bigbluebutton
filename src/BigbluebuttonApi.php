@@ -65,7 +65,7 @@ class BigbluebuttonApi
      */
     private function getChecksum($method, $urlParams = '')
     {
-        $checksum = '&checksum=' . sha1('create' . $urlParams . $this->config['bbb_security_salt']);
+        $checksum = '&checksum=' . sha1($method . $urlParams . $this->config['bbb_security_salt']);
         return $checksum;
     }
 
@@ -202,7 +202,7 @@ class BigbluebuttonApi
      * @param Array $joinParams extra optional parameters ['createTime', 'userID', 'webVoiceConf']
      * @return string $url
      */
-    public function getJoinMeetingURL($meetingID, $username, $password, $joinParams)
+    public function getJoinMeetingURL($meetingID, $username, $password, $joinParams = '')
     {
         // Establish the basic join URL:
         $creationUrl = $this->config['bbb_server_url'] . "api/join?";
