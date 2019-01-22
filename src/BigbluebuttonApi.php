@@ -211,6 +211,9 @@ class BigbluebuttonApi
         $params['fullName'] = $username;
         $params['password'] = $password;
 
+        if ($joinParams != '')
+            $params = array_merge($params, $joinParams);
+	    
         $urlParams = http_build_query($params);
         $checksum = $this->getChecksum('join', $urlParams);
         $url = $creationUrl . $urlParams . $checksum;
